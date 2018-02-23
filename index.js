@@ -10,7 +10,7 @@ bot.on("ready", async () => {
   bot.user.setPresence({game: { name: 'MinithMc', type: 0} });
 });
 
-bot.on("guildMemberAdd" member -> {
+bot.on("guildMemberAdd", member -> {
   let role = member.roles.find("name", "🙇🏻‍♂️Minithien🙇🏻‍♂️");
   let annoncechannel = member.guild.channels.find("name", "join-and-leave");
 
