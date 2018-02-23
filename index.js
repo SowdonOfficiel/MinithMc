@@ -3,8 +3,6 @@ const Discord = require("discord.js");
 const ms = require("ms");
 const bot = new Discord.Client({disableEveryone: true});
 
-var bot = new Discord.Client();
-
 var servers = {};
 
 bot.on("ready", async () => {
