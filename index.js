@@ -11,7 +11,7 @@ bot.on("ready", async () => {
 });
 
 bot.on("guildMemberAdd", member -> {
-  let role = member.roles.find("name", "🙇🏻‍♂️Minithien🙇🏻‍♂️");
+  let role = member.guild.roles.find("name", "🙇🏻‍♂️Minithien🙇🏻‍♂️");
   let annoncechannel = member.guild.channels.find("name", "join-and-leave");
 
   let joinEmbed = new Discord.RichEmbed()
