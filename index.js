@@ -10,7 +10,7 @@ bot.on("ready", async () => {
   bot.user.setPresence({game: { name: 'MinithMc', type: 0} });
 });
 
-bot.on("guildMemberAdd", member -> {
+bot.on("guildMemberAdd", async member => {
   let role = member.guild.roles.find("name", "🙇🏻‍♂️Minithien🙇🏻‍♂️");
   let annoncechannel = member.guild.channels.find("name", "join-and-leave");
 
@@ -102,7 +102,7 @@ bot.on("message", async message => {
     .addField("Raison", kReason)
     .addField("Time", message.createdAt);
 
-    message.guild.member(kUser).send("Vous avez était kick du discord de **MinithMc** ! Pour :", kReason);
+    //message.guild.member(kUser).sendMessage("Vous avez était kick du discord de **MinithMc** ! Pour :", kReason);
 
     let logchannel = message.guild.channels.find(`name`, `logs`);
     if(!logchannel) return message.guild.channel.send("Erreur, merci de contacter Sowdon !");
@@ -126,6 +126,13 @@ bot.on("message", async message => {
   })
 
   return;
+  }
+
+  if(cmd == `${prefix}setgame`){
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission de modifier le statut du bot !");
+    let args = msg.content.split(" ").slice(1);
+    let game = args.join(" ");
+    bot.user.setGame(game);
   }
 
   if(cmd == `${prefix}say`){
@@ -191,7 +198,7 @@ bot.on("message", async message => {
     .addField("Raison", bReason)
     .addField("Time", message.createdAt);
 
-    message.guild.member(bUser).send("Vous avez était ban du discord de **MinithMc** ! Pour :", bReason);
+    //message.guild.member(bUser).send("Vous avez était ban du discord de **MinithMc** ! Pour :", bReason);
 
     let logchannel = message.guild.channels.find(`name`, `logs`);
     if(!logchannel) return message.guild.channel.send("Erreur, merci de contacter Sowdon !");
