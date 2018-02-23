@@ -128,13 +128,6 @@ bot.on("message", async message => {
   return;
   }
 
-  if(cmd == `${prefix}setgame`){
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission de modifier le statut du bot !");
-    let args = msg.content.split(" ").slice(1);
-    let game = args.join(" ");
-    bot.user.setGame(game);
-  }
-
   if(cmd == `${prefix}say`){
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission pour faire parler le bot !");
     let botmessage = args.join(" ");
