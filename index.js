@@ -10,6 +10,21 @@ bot.on("ready", async () => {
   bot.user.setPresence({game: { name: 'MinithMc', type: 0} });
 });
 
+bot.on("guildMemberAdd" member -> {
+  let role = member.roles.find("name", "🙇🏻‍♂️Minithien🙇🏻‍♂️");
+  let annoncechannel = member.guild.channels.find("name", "join-and-leave");
+
+  let joinEmbed = new Discord.RichEmbed()
+  .setDescription("๑۩۞۩๑ Bienvenue ! ๑۩۞۩๑")
+  .setColor("#FFA07A")
+  .addField("Bienvenue", `${member.user.username}`)
+  .addField("Passe un bon moment sur le discord de MinithMc.");
+
+  annoncechannel.send(kickEmbed);
+
+
+})
+
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
@@ -27,7 +42,7 @@ bot.on("message", async message => {
     message.channel.send('coucou');
   }
 
-   if(message.content === "Raconte moi une blague" || message.content === "dis moi une blague MinithMc" || message.content === "raconte moi une blague"){
+  if(message.content === "Raconte moi une blague" || message.content === "dis moi une blague MinithMc" || message.content === "raconte moi une blague"){
     random();
 
     if(randnum == 1){
