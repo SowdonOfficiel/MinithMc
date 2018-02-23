@@ -20,7 +20,7 @@ bot.on("guildMemberAdd", async member => {
   .addField("Bienvenue", `${member.user.username}`)
   .addField("Passe un bon moment sur le discord de MinithMc.");
 
-  annoncechannel.send(kickEmbed);
+  annoncechannel.send(joinEmbed);
 
 
 })
