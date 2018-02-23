@@ -3,8 +3,13 @@ const Discord = require("discord.js");
 const ms = require("ms");
 const bot = new Discord.Client({disableEveryone: true});
 
+var bot = new Discord.Client();
+
+var servers = {};
+
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
+  bot.user.setPresence({game: { name: 'MinithMc', type: 0} });
 });
 
 bot.on("message", async message => {
@@ -22,6 +27,50 @@ bot.on("message", async message => {
 
   if (message.content === 'hey') {
     message.channel.send('coucou');
+  }
+
+  if(message.content === "Raconte moi une blague" || message.content === "dis moi une blague MinithMc"){
+    random();
+
+    if(randnum == 1){
+      message.reply("Un fils demande à son père : \n - Papa,c'est quoi la beauté? \n - Tu vois ta mère ? \n - Oui \n - Et ben c'est pas ça!");
+    }
+
+    if(randnum == 2){
+      message.reply("Un jour Dieu dit à Casto de ramer. \n Et depuis, castorama...");
+    }
+
+    if(randnum == 3){
+      message.reply("Quelle est la différence entre une échelle et un pistolet ? \n L'échelle sert à monter, le pistolet sert à descendre.");
+    }
+
+    if(randnum == 4){
+      message.reply("Pourquoi un chasseur emmène-t-il son fusil aux toilettes ? \n Pour tirer la chasse.");
+    }
+
+    if(randnum == 5){
+      message.reply("Vous connaissez l'histoire de l'armoire ? \n Elle est pas commode...");
+    }
+
+    if(randnum == 6){
+      message.reply("Dans la phrase **le voleur a volé une télévision**, où est le sujet ? \n En prison !");
+    }
+
+    if(randnum == 7){
+      message.reply("- Les gens devraient dormir leur fenêtre ouverte... \n - Pourquoi, vous êtes medecin ? \n - Non, cambrioleur !");
+    }
+
+    if(randnum == 8){
+      message.reply("Que fait une vache quand elle a les yeux fermés ? \n - Elle fabrique du lait concentré!");
+    }
+
+    if(randnum == 9){
+      message.reply("L'autre jour, j’ai raconté une blague sur Carrefour, mais elle a pas supermarché…");
+    }
+
+    if(randnum == 10){
+      message.reply("L'autre jour, j’ai raconté une blague sur Carrefour, mais elle a pas supermarché…");
+    }
   }
 
   if(cmd == `${prefix}kick`){
@@ -174,5 +223,11 @@ bot.on("message", async message => {
   }
 
 });
+
+function random(min, max){
+  min = Math.ceil(0);
+  max = Math.floor(10);
+  randnum = Math.floor(Math.random() * (max - min +1) + min);
+}
 
 bot.login(botconfig.token);
