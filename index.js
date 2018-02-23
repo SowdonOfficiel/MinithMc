@@ -27,7 +27,7 @@ bot.on("message", async message => {
     message.channel.send('coucou');
   }
 
-  if(message.content === "Raconte moi une blague" || message.content === "dis moi une blague MinithMc"){
+   if(message.content === "Raconte moi une blague" || message.content === "dis moi une blague MinithMc" || message.content === "raconte moi une blague"){
     random();
 
     if(randnum == 1){
