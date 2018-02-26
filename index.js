@@ -32,6 +32,10 @@ bot.on("message", async message => {
     message.reply("```Les commandes : \n > -help : permet d'obtenir de l'aide. \n > -bot : permet d'obtenir des informations sur le bot \n > -info : permet d'obtenir des informations sur le discord. \n > -discord : permet d'obtenir le discord de **Zirow**. \n > -ban @user *raison* : permet de bannir un utilisateur du discord. \n > -kick @user *raison* : permet de kick un utilisateur. \n > -clear *message* : permet de clear des messages. \n > -report @user *raison* : permet de report un utilisateur. \n ```");
   }
 
+  if(cmd == `${prefix}andary`){
+    message.reply("test");
+  }
+
   //Autobannisement pour certain mot
 
   if (message.content === 'tg' || message.content == 'Tg' || message.content == 'TG') {
@@ -85,7 +89,11 @@ bot.on("message", async message => {
     .setThumbnail(sicon)
     .addField("Membre :", message.guild.memberCount)
     .addField("Crée le:", message.guild.createdAt)
-    .addField("Vous avez rejoint le discord le", message.member.joinedAt);
+    .addField("Region:", message.guild.region)
+    .addField("Owner", message.guild.owner.user)
+    .addField("Vous avez rejoint le discord le", message.member.joinedAt)
+    .addField("ID", message.guild.id);
+
 
     return message.channel.send(serverembed);
   }
